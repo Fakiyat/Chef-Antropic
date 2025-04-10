@@ -18,19 +18,24 @@ function Main() {
   const [ingredients, setIngredients] = React.useState([]);
   const ingredientListItems = ingredients.map((ingredient) => (
     <li key={ingredient}> {ingredient}</li>
-  ));
+  )); // helps the new ingrendient to be added as a list items
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  // function handleSubmit(event) {
+  //   event.preventDefault();// prevents the page from refreshing
 
-    const formData = new FormData(event.currentTarget);
-    const newIngredient = formData.get("ingredient");
-    setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+  //   const formData = new FormData(event.currentTarget);//helps to get the data from the form data
+  //   const newIngredient = formData.get("ingredient");//helps to get the name when we write on the input field
+  //   setIngredients((prevIngredients) => [...prevIngredients, newIngredient]); //helps to add the new ingredient to the list  of ingredients
+  // }
+  //or we can write this and in return we have to write Action instead of in onSubmit
+  function addIngredients(formData) {
+    const newIngredient = formData.get("ingredient"); //helps to get the name when we write on the input field
+    setIngredients((prevIngredients) => [...prevIngredients, newIngredient]); //helps to add the new ingredient to the list  of ingredients
   }
 
   return (
     <main>
-      <form onSubmit={handleSubmit} className="add-ingredient-form">
+      <form action={addIngredients} className="add-ingredient-form">
         <input
           type="text"
           placeholder="e.g.oregano"
@@ -39,7 +44,21 @@ function Main() {
         />
         <button>Add ingredient</button>
       </form>
-      <ul>{ingredientListItems}</ul>
+      {ingredients.length > 0 && (
+        <section>
+          <h1>Ingredients on hand:</h1>
+          <ul className="ingredients-list" aria-live="polite">
+            {ingredientListItems}
+          </ul>
+          <div className="get-recipe-container">
+            <div>
+              <h3>Ready for a recipe?</h3>
+              <p>Generate a recipe from your list of ingredients.</p>
+            </div>
+            <button>Get a recipe</button>
+          </div>
+        </section>
+      )}
     </main>
   );
 }
