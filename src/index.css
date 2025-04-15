@@ -76,7 +76,7 @@ main {
   margin-bottom: 48px;
 }
 li {
-  color: #8d8d8d;
+  color: #475467;
   font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -121,4 +121,15 @@ li {
 .get-recipe-container button:hover {
   background-color: #7f0bdf;
   transition: 0.4s;
+}
+.suggested-recipe-container {
+  color: #475467;
+  line-height: 28px;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.suggested-recipe-container ul li,
+.suggested-recipe-container ol li {
+  margin-bottom: 8px;
 }

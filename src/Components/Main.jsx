@@ -14,11 +14,23 @@
 //   console.log(ingredients);
 // }
 import React from "react";
+import IngredientsList from "./IngredientsList";
+import ClaudeRecipe from "./ClaudeRecipe";
+
 function Main() {
-  const [ingredients, setIngredients] = React.useState([]);
-  const ingredientListItems = ingredients.map((ingredient) => (
-    <li key={ingredient}> {ingredient}</li>
-  )); // helps the new ingrendient to be added as a list items
+  const [ingredients, setIngredients] = React.useState([
+    "all the main spices",
+    "pasta",
+    "ground beef",
+    "tomato paste",
+  ]);
+
+  const [recipeShown, setRecipeShown] = React.useState(false);
+
+  function handleRecipeClick() {
+    setRecipeShown((prevRecipeShown) => !prevRecipeShown);
+  } // this is used to change the boolean for the given function fron false to true when we click the button
+  console.log(recipeShown);
 
   // function handleSubmit(event) {
   //   event.preventDefault();// prevents the page from refreshing
@@ -44,21 +56,15 @@ function Main() {
         />
         <button>Add ingredient</button>
       </form>
+      {/*length greater than 0 this condition applies when there is 1 item added then it will render the Ingredients on hand if nothing in list then nothing will render */}
       {ingredients.length > 0 && (
-        <section>
-          <h1>Ingredients on hand:</h1>
-          <ul className="ingredients-list" aria-live="polite">
-            {ingredientListItems}
-          </ul>
-          <div className="get-recipe-container">
-            <div>
-              <h3>Ready for a recipe?</h3>
-              <p>Generate a recipe from your list of ingredients.</p>
-            </div>
-            <button>Get a recipe</button>
-          </div>
-        </section>
+        <IngredientsList
+          ingredients={ingredients}
+          handleRecipeClick={handleRecipeClick}
+          recipeShown={recipeShown}
+        />
       )}
+      {recipeShown == true && <ClaudeRecipe />}
     </main>
   );
 }
