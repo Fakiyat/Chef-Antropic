@@ -16,21 +16,21 @@
 import React from "react";
 import IngredientsList from "./IngredientsList";
 import ClaudeRecipe from "./ClaudeRecipe";
+import { getRecipeFromMistral } from "./Ai/ai.js"; // this is used to get recipe from ai
 
 function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "all the main spices",
-    "pasta",
-    "ground beef",
-    "tomato paste",
-  ]);
+  const [ingredients, setIngredients] = React.useState("");
 
-  const [recipeShown, setRecipeShown] = React.useState(false);
+  const [recipe, setRecipe] = React.useState("");
 
-  function handleRecipeClick() {
-    setRecipeShown((prevRecipeShown) => !prevRecipeShown);
-  } // this is used to change the boolean for the given function fron false to true when we click the button
-  console.log(recipeShown);
+  async function getRecipe() {
+    try {
+      const generateRecipe = await getRecipeFromMistral(ingredients);
+      setRecipe(generateRecipe);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
   // function handleSubmit(event) {
   //   event.preventDefault();// prevents the page from refreshing
@@ -58,13 +58,9 @@ function Main() {
       </form>
       {/*length greater than 0 this condition applies when there is 1 item added then it will render the Ingredients on hand if nothing in list then nothing will render */}
       {ingredients.length > 0 && (
-        <IngredientsList
-          ingredients={ingredients}
-          handleRecipeClick={handleRecipeClick}
-          recipeShown={recipeShown}
-        />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-      {recipeShown == true && <ClaudeRecipe />}
+      {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
