@@ -65,6 +65,10 @@ main {
   content: "+";
   margin-right: 5px;
 }
+.title-name {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 /* ul {
   padding-left: 40px;
   margin-left: 350px;
@@ -124,6 +128,8 @@ li {
 }
 .suggested-recipe-container {
   color: #475467;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   line-height: 28px;
   font-size: 1.125rem;
   font-weight: 400;

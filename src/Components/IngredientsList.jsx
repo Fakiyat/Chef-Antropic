@@ -8,7 +8,7 @@ export default function IngredientsList(props) {
   return (
     <div>
       <section>
-        <h1>Ingredients on hand:</h1>
+        <h1 className="title-name">Ingredients on hand:</h1>
         <ul className="ingredients-list" aria-live="polite">
           {ingredientListItems}
         </ul>
@@ -19,9 +19,7 @@ export default function IngredientsList(props) {
               <h3>Ready for a recipe?</h3>
               <p>Generate a recipe from your list of ingredients.</p>
             </div>
-            <button onClick={props.handleRecipeClick}>
-              {!props.recipeShown ? "Get a recipe" : "Recipe shown"}
-            </button>
+            <button onClick={props.getRecipe}>Get a recipe</button>
           </div>
         )}
       </section>
