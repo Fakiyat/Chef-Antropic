@@ -15,7 +15,7 @@ export default function IngredientsList(props) {
         {/* Same condition if there are atleast 4 items in list them the generate recipe will render there should be minimum of 4 list items to render */}
         {props.ingredients.length > 3 && (
           <div className="get-recipe-container">
-            <div>
+            <div ref={props.useRef}>
               <h3>Ready for a recipe?</h3>
               <p>Generate a recipe from your list of ingredients.</p>
             </div>

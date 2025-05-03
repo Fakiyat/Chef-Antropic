@@ -25,7 +25,7 @@ header img {
   width: 95px;
 }
 main {
-  padding: 50px 40px;
+  padding: 50px 40px 0 50px;
 }
 .add-ingredient-form {
   display: flex;
@@ -77,17 +77,16 @@ main {
   width: 50%;
 } */
 .ingredients-list {
-  margin-bottom: 48px;
+  margin-bottom: 10px;
 }
 li {
   color: #475467;
   font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  padding-left: 10px;
-  margin-bottom: 10px;
+  padding: 10px 0 10px 10px;
   list-style: circle;
-  line-height: 30px;
+  line-height: 40px;
 }
 
 .get-recipe-container {
@@ -96,7 +95,7 @@ li {
   align-items: center;
   border-radius: 8px;
   background: #ebdaff;
-  padding: 10px 28px;
+  padding: 20px 28px;
 }
 
 .get-recipe-container h3 {
@@ -133,6 +132,7 @@ li {
   line-height: 28px;
   font-size: 1.125rem;
   font-weight: 400;
+  margin-top: 80px;
 }
 
 .suggested-recipe-container ul li,
