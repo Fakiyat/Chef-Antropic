@@ -23,6 +23,15 @@ function Main() {
 
   const [recipe, setRecipe] = React.useState("");
 
+  // useRef for scorll animation
+  const recipeSection = React.useRef(null);
+
+  React.useEffect(() => {
+    if (recipe !== "" && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [recipe]);
+
   async function getRecipe() {
     try {
       const generateRecipe = await getRecipeFromMistral(ingredients);
@@ -58,7 +67,11 @@ function Main() {
       </form>
       {/*length greater than 0 this condition applies when there is 1 item added then it will render the Ingredients on hand if nothing in list then nothing will render */}
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+          useRef={recipeSection}
+        />
       )}
       {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
