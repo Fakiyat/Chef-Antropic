@@ -4,5 +4,10 @@
 <h2>Steps to do that</h2>
 <br/>
 <li>
-  <ol> First Add any 4 ingriedents of your choice</ol>
+   First Add any 4 ingriedents of your choice
 </li>
+<li>
+  When you add 4 ingridents in  list then a bar will appear at the bottom
+</li>
+<li>Inside the bar there you will find Get Recipe button-> Click on it !!</li>
+
