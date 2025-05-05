@@ -4,5 +4,5 @@
 <h2>Steps to do that</h2>
 <br/>
 <li>
-  <ol>1: First Add any 4 ingriedents of your choice</ol>
+  <ol> First Add any 4 ingriedents of your choice</ol>
 </li>
