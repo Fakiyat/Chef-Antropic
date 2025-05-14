@@ -13,3 +13,5 @@
 
 <li>Then let the Ai do the work, its will  take min of 4sec and then  the ai will automatically generates a Recipe for you</li>
 <li>Add hen the Recipe is done it will automatically Scroll the page to it</li>
+<h2>To run server</h2>
+<code>npm run dev</code>
